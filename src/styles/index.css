@@ -48,7 +48,7 @@ button {
 }
 
 button:active {
-    transform: none;
+    transform: translateY(1px);
 }
 
 .btn-add-task {
@@ -60,6 +60,7 @@ button:active {
 
 button:hover {
         background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+        cursor: pointer;
 }
 
 .task-list-head {

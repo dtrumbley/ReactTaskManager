@@ -12,7 +12,6 @@ export interface Task {
 }
 
 export default function TaskList({ Tasks }: TaskProps) {
-  console.log(Tasks);
   return (
     <div id="task-list">
       <div className="task-list-head">
