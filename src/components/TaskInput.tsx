@@ -1,3 +1,9 @@
 export default function TaskInput(){
-    return;
+    return(
+        <div className="backdrop">
+            <div className="task-input-window">
+                
+            </div>
+        </div>
+    )
 }
