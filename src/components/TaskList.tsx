@@ -6,6 +6,8 @@ interface TaskProps {
   Tasks: Array<Task>;
   onComplete: any;
   onDestroy: any;
+  onUndo: any;
+  histCount: Array<Task>;
 }
 
 export interface Task {
@@ -15,7 +17,13 @@ export interface Task {
   CreatedOn: Date;
 }
 
-export default function TaskList({ Tasks, onComplete, onDestroy }: TaskProps) {
+export default function TaskList({
+  Tasks,
+  onComplete,
+  onDestroy,
+  onUndo,
+  histCount,
+}: TaskProps) {
   const [isAdding, setIsAdding] = useState(false);
 
   function processAdd(nTask: Task) {
@@ -33,7 +41,12 @@ export default function TaskList({ Tasks, onComplete, onDestroy }: TaskProps) {
       )}
       <div id="task-list">
         <div className="task-list-head">
-          <h1>myTasks</h1>
+          <h1>My Tasks</h1>
+          {histCount.length > 0 && (
+            <button className="btn-undo" onClick={onUndo}>
+              Undo
+            </button>
+          )}
           <button className="btn-add-task" onClick={() => setIsAdding(true)}>
             Add
           </button>

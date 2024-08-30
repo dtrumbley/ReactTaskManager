@@ -51,6 +51,13 @@ button:active {
     transform: translateY(1px);
 }
 
+.btn-undo {
+    position: absolute;
+    padding: 10px 15px;
+    right: 72px;
+    bottom: 5px;
+}
+
 .btn-add-task {
     padding: 10px 15px 10px 15px;
     position: absolute;
@@ -70,6 +77,9 @@ button:hover {
 
 .task-list-body {
     padding: 10px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #task-list {
@@ -78,12 +88,15 @@ button:hover {
 
 table {
     background-color: rgba(128, 128, 128, 0.5);
-    flex: 1;
     border: 2px solid white;
     border-collapse: collapse;
     margin: 20px 0;
     min-width: 0;
     table-layout: fixed; /*added to prevent long task name from breaking formatting*/
+    max-width: 1300px;
+    align-self: center;
+    height: 100%;
+    width: 100%;
 }
 
 thead,tbody,tr,th,td {
@@ -127,11 +140,15 @@ tbody td {
     top: 50%;
     transform: translate(-50%,-50%);
     background-color: #1f1e1e;
-    height: 425px;
-    width: 600px;
+    max-height: 425px;
+    max-width: 600px;
+    min-width: 400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: 40vh;
+    width: 60vw;
+    min-height: auto;
 }
 
 .task-input-window input {
