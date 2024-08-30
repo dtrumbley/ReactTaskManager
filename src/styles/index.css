@@ -82,6 +82,8 @@ table {
     border: 2px solid white;
     border-collapse: collapse;
     margin: 20px 0;
+    min-width: 0;
+    table-layout: fixed; /*added to prevent long task name from breaking formatting*/
 }
 
 thead,tbody,tr,th,td {
@@ -96,8 +98,9 @@ tr {
 }
 
 th,td {
-    flex: 1;
-    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 250px;
 }
 
 th,tr,td {
@@ -109,3 +112,80 @@ tbody td {
     border-bottom: 1px solid darkgrey;
 }
 
+.backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.task-input-window {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #1f1e1e;
+    height: 425px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.task-input-window input {
+    box-sizing: border-box;
+    border: 1.5px solid transparent;
+    height: 10%;
+    border: none;
+    background-color: darkslategray;
+    margin: 20px;
+    border-radius: 5px;
+    transition: border 0.3s ease-in;
+}
+
+.task-input-window *{
+    background-color: darkslategray;
+}
+.task-input-window input:hover,input:focus,select:hover,select:focus {
+    outline-style: none;
+    border: 1.5px solid rgb(14, 139, 211);
+}
+
+.task-input-window div {
+    background-color: inherit;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-btn-exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    height: 10%;
+    padding: 0px 10px;
+}
+
+#input-btn-add {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 15px 20px;
+    background-color: rgb(14, 139, 211);
+}
+
+select {
+    box-sizing: border-box;
+    border: 1.5px solid transparent;
+    display: block;
+    margin: 10px;
+    height: 30px;
+    width:100px;
+    border: none;
+    border-radius: 3px;
+    transition: border 0.3s ease-in;
+}
